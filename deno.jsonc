@@ -1,0 +1,44 @@
+{
+  "strict": true,
+  "nodeModulesDir": false,
+  "lock": false,
+  "compilerOptions": {
+    "strict": true,
+    "lib": ["deno.ns", "webworker", "dom", "dom.iterable", "dom.asynciterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "useUnknownInCatchVariables": true
+  },
+  "lint": {
+    "include": ["src/"],
+    "rules": {
+      "tags": ["recommended"],
+      "include": ["no-non-null-assertion"]
+    }
+  },
+  "fmt": {
+    "include": ["src/"],
+    "semiColons": false,
+    "singleQuote": true
+  },
+  "tasks": {
+    "start": "deno run --allow-read --allow-net --allow-write --allow-env --allow-run --watch=src src/server.ts",
+    "test": "deno test --allow-read --allow-net --allow-write --allow-env --allow-run build-bundler.test.ts"
+  },
+  "imports": {
+    "@/": "./src/",
+    "deno-esbuild": "jsr:@fairfox/deno-esbuild@0.0.11",
+    "assert": "jsr:@std/assert@0.220.1",
+    "dotenv": "jsr:@std/dotenv@^0.225.2",
+    "hono": "jsr:@hono/hono@^4.6.1",
+    "preact": "https://esm.sh/*preact@10.19.6",
+    "preact/": "https://esm.sh/*preact@10.19.6/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "@/app.module.css": "./src/css-module.d.ts",
+    "@/global.css": "./src/css.d.ts",
+    "@/assets/avatar.png": "./src/png-asset.d.ts",
+    "@/assets/favicon.ico": "./src/png-asset.d.ts",
+    "@/assets/site.webmanifest": "./src/png-asset.d.ts"
+  }
+}
