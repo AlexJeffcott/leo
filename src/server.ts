@@ -4,6 +4,8 @@ import {
 } from 'deno-esbuild'
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/deno';
+import * as esbuild from 'https://deno.land/x/esbuild@v0.23.1/wasm.js'
+const esbuildWASMUrl = 'https://deno.land/x/esbuild@v0.23.1/esbuild.wasm'
 
 const app = new Hono()
 
@@ -113,5 +115,5 @@ async function makeBundle() {
     write: false,
   }, 'deno.jsonc', 'dev', 'browser', '.env')
 
-  return bundleWithWasm(cfg, false)
+  return bundleWithWasm(cfg, false, esbuild, esbuildWASMUrl)
 }
