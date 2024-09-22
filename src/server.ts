@@ -1,11 +1,11 @@
 import {
-  bundleWithWasm,
+  bundleInDenoDeploy,
   forPreact
+  // } from '../../deno-esbuild/src/mod.ts'
 } from 'deno-esbuild'
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/deno';
-import * as esbuild from 'https://deno.land/x/esbuild@v0.23.1/wasm.js'
-const esbuildWASMUrl = 'https://deno.land/x/esbuild@v0.23.1/esbuild.wasm'
+import * as esbuild from "https://deno.land/x/esbuild@v0.24.0/wasm.js"
 
 const app = new Hono()
 
@@ -14,21 +14,13 @@ const result = await makeBundle()
 let scripts = ''
 let styles = ''
 
-if (result.outputFiles === undefined) {
+if (result?.outputFiles === undefined) {
   throw new Error('result.outputFiles should be defined')
 }
-
 for (const out of result.outputFiles) {
   const fileName = out.path.split('/').pop() || 'undefined.js'
   const ext = fileName.split('.').pop()
   const path = `/${fileName}`
-
-
-  // if (ext === 'webmanifest') {
-  //   manifestPath = path
-  // } else if (ext === 'ico') {
-  //   faviconPath = path
-  // }
 
   app.get(path, () => {
     if (ext === 'css') {
@@ -109,11 +101,11 @@ Deno.serve({ port: 8000 }, app.fetch)
 async function makeBundle() {
   const cfg = await forPreact({
     entryPoints: ['./src/main.tsx'],
-    loader: {
-      '.png': 'file', '.woff2': 'file'
-    },
     write: false,
   }, 'deno.jsonc', 'dev', 'browser', '.env')
 
-  return bundleWithWasm(cfg, false, esbuild, esbuildWASMUrl)
+
+  if (esbuild) {
+    return bundleInDenoDeploy(cfg, esbuild)
+  }
 }

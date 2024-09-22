@@ -1,6 +1,6 @@
 import classes from '@/app.module.css'
 import { Avatar } from '@/icons/avatar.tsx'
-import { type FunctionalComponent, type JSX } from 'preact'
+import { type FunctionalComponent } from 'preact'
 import { useSignal } from '@preact/signals'
 import { useDecksStore } from '@/contexts/decks.tsx'
 import { useRoutesStore } from '@/contexts/routes.tsx'
