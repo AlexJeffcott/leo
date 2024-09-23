@@ -12,6 +12,10 @@ The Preact app itself has the entrypoint of `main.tsx` and makes use of `.woff2`
 
 Every time the server runs, it rebuilds the source code. It adds a fairly unique `BUILD_ID` environment variable each time it builds.
 
+
+    "as we want to be able to run on deno deploy, it is vital to NOT USE --allow-run": "",
+    // the following are only for ide purposes, so the deno language server knows how to deal with the imports
+
 ### TODO
 #### Assets
 - decide whether I can serve static assets and easily deploy (deno deploy?)

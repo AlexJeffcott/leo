@@ -33,4 +33,9 @@ export class Decks {
         this.currentQuestion.value = undefined
         this.currentDeck.value = undefined
     }
+
+    log() {
+        console.log('currentDeck', this.currentDeck.value)
+        console.log('currentQuestion', this.currentQuestion.value)
+    }
 }

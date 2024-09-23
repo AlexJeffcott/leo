@@ -1,4 +1,6 @@
-@import "@/reset.css";
+@import "@/ui/reset.css";
+@import "@/ui/sizes.css";
+@import "@/ui/colors.css";
 
 @font-face {
     font-family: Inter;
@@ -19,13 +21,15 @@
 }
 
 body {
-    --color: white;
-    --bg-color: cadetblue;
-
     font-family: Inter, Helvetica Neue, sans-serif;
-    background-color: var(--bg-color)
+    background-color: var(--bg);
+    color: var(--color);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    color-scheme: light dark;
 }
 
-body, h1, h2, h3, p {
+h1, h2, h3, p {
     margin: 0;
 }

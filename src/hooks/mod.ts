@@ -1,0 +1,1 @@
+export { useStableVariable } from './use-stable-variable.tsx'

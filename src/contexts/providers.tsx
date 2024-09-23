@@ -1,8 +1,9 @@
 import { type FunctionalComponent } from 'preact'
-import { DecksContextComponent } from '@/contexts/decks.tsx'
-import { RoutesContextComponent } from '@/contexts/routes.tsx'
-import { Decks } from '@/stores/decks.ts'
-import { Routes } from '@/stores/routes.ts'
+import {
+    DecksContextComponent,
+    RoutesContextComponent,
+} from '@/contexts/mod.ts'
+import { Decks, Routes } from '@/stores/mod.ts'
 
 const decksStore = new Decks()
 const routesStore = new Routes()

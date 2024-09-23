@@ -1,0 +1,18 @@
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/system-color */
+:where(body) {
+    --bg: color-mix(in srgb, Canvas, CanvasText 2.5%);
+    --color: color-mix(in srgb, CanvasText, Canvas 15%);
+    --btn-hover: #e1e1e1;
+    --btn-bg: var(--bg);
+    --btn-border: grey
+}
+
+@media (prefers-color-scheme: dark) {
+    :where(body) {
+        --bg: color-mix(in srgb, Canvas, CanvasText 2.5%);
+        --color: color-mix(in srgb, CanvasText, Canvas 15%);
+        --btn-hover: #e1e1e1;
+        --btn-bg: var(--bg);
+        --btn-border: grey
+    }
+  }

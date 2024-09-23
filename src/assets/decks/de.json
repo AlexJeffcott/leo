@@ -1,6 +1,6 @@
 {
     "id": "000002",
-    "title": "Deutsch",
+    "title": "deutsch",
     "lang": "de",
     "preQuestionText": "Wie schreibt man",
     "postQuestionText": "?",
@@ -10,57 +10,68 @@
             "text": "glücklich",
             "example": "Ich bin glücklich, wenn ich mit meinen Freunden spiele.",
             "answers": ["glücklich"]
-        },        {
+        },
+        {
             "id": "000002",
             "text": "bockig",
             "example": "Der kleine Junge war bockig und wollte nicht ins Bett.",
             "answers": ["bockig"]
-        },        {
+        },
+        {
             "id": "000003",
             "text": "erfreut",
             "example": "Sie war erfreut über das Geschenk.",
             "answers": ["erfreut"]
-        },        {
+        },
+        {
             "id": "000004",
             "text": "nett",
             "example": "Der Hund ist sehr nett und freundlich.",
             "answers": ["nett"]
-        },        {
+        },
+        {
             "id": "000005",
             "text": "versunken",
             "example": "Er war in sein Buch versunken und hörte nichts um sich herum.",
             "answers": ["versunken"]
-        },        {
+        },
+        {
             "id": "000006",
             "text": "begeistert",
             "example": "Die Kinder waren begeistert von der neuen Schaukel.",
             "answers": ["begeistert"]
-        },        {
+        },
+        {
             "id": "000007",
             "text": "eitel",
             "example": "Die Katze ist sehr eitel und putzt sich ständig.",
             "answers": ["eitel"]
-        },        {
+        },
+        {
             "id": "000008",
             "text": "süß",
             "example": "Das Kätzchen ist so süß und flauschig.",
             "answers": ["süß"]
-        },        {
+        },
+        {
             "id": "000009",
             "text": "überrascht",
             "example": "Er war überrascht, als er das große Geschenk sah.",
             "answers": ["überrascht"]
-        },        {
+        },
+        {
             "id": "000010",
             "text": "hoffnungsvoll",
             "example": "Sie ist hoffnungsvoll, dass sie das Spiel gewinnen wird.",
             "answers": ["hoffnungsvoll"]
-        },        {
+        },
+        {
             "id": "000011",
             "text": "zuversichtlich",
             "example": "Er ist zuversichtlich, dass er die Prüfung bestehen wird.",
             "answers": ["zuversichtlich"]
-        },        {
+        },
+        {
             "id": "000012",
             "text": "erwartungsfroh",
             "example": "Die Kinder sind erwartungsfroh vor dem Ausflug.",

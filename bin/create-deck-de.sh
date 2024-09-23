@@ -8,7 +8,7 @@ output_file="src/assets/decks/de.json"
 # Initialize JSON structure
 json='{
     "id": "000002",
-    "title": "Deutsch",
+    "title": "deutsch",
     "lang": "de",
     "preQuestionText": "Wie schreibt man",
     "postQuestionText": "?",

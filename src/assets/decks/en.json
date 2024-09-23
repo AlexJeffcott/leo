@@ -10,147 +10,176 @@
             "text": "fun",
             "example": "Playing games with friends is always fun.",
             "answers": ["fun"]
-        },        {
+        },
+        {
             "id": "000002",
             "text": "sag",
             "example": "The old chair began to sag in the middle.",
             "answers": ["sag"]
-        },        {
+        },
+        {
             "id": "000003",
             "text": "dot",
             "example": "She put a red dot on the map to mark the spot.",
             "answers": ["dot"]
-        },        {
+        },
+        {
             "id": "000004",
             "text": "yum",
             "example": "The cookies Mom baked were so yum!",
             "answers": ["yum"]
-        },        {
+        },
+        {
             "id": "000005",
             "text": "nut",
             "example": "The squirrel hid a nut in the garden.",
             "answers": ["nut"]
-        },        {
+        },
+        {
             "id": "000006",
             "text": "mud",
             "example": "After the rain, the yard was full of mud.",
             "answers": ["mud"]
-        },        {
+        },
+        {
             "id": "000007",
             "text": "bog",
             "example": "We saw a frog in the bog near the park.",
             "answers": ["bog"]
-        },        {
+        },
+        {
             "id": "000008",
             "text": "spot",
             "example": "Can you spot the hidden treasure in the picture?",
             "answers": ["spot"]
-        },        {
+        },
+        {
             "id": "000009",
             "text": "slop",
             "example": "Be careful not to slop your drink on the floor.",
             "answers": ["slop"]
-        },        {
+        },
+        {
             "id": "000010",
             "text": "sun",
             "example": "We love to play outside when the sun is shining.",
             "answers": ["sun"]
-        },        {
+        },
+        {
             "id": "000011",
             "text": "slip",
             "example": "Watch out, or you might slip on the wet floor.",
             "answers": ["slip"]
-        },        {
+        },
+        {
             "id": "000012",
             "text": "run",
             "example": "They decided to run a race in the playground.",
             "answers": ["run"]
-        },        {
+        },
+        {
             "id": "000013",
             "text": "fog",
             "example": "The fog made it hard to see the road.",
             "answers": ["fog"]
-        },        {
+        },
+        {
             "id": "000014",
             "text": "chop",
             "example": "Dad will chop the wood for the fireplace.",
             "answers": ["chop"]
-        },        {
+        },
+        {
             "id": "000015",
             "text": "bag",
             "example": "She packed her lunch in a brown paper bag.",
             "answers": ["bag"]
-        },        {
+        },
+        {
             "id": "000016",
             "text": "breeze",
             "example": "The cool breeze felt nice on a hot day.",
             "answers": ["breeze"]
-        },        {
+        },
+        {
             "id": "000017",
             "text": "wheeze",
             "example": "He started to wheeze after running too fast.",
             "answers": ["wheeze"]
-        },        {
+        },
+        {
             "id": "000018",
             "text": "mouse",
             "example": "The little mouse nibbled on a piece of cheese.",
             "answers": ["mouse"]
-        },        {
+        },
+        {
             "id": "000019",
             "text": "curve",
             "example": "The road had a sharp curve near the hill.",
             "answers": ["curve"]
-        },        {
+        },
+        {
             "id": "000020",
             "text": "simple",
             "example": "The math problem was simple to solve.",
             "answers": ["simple"]
-        },        {
+        },
+        {
             "id": "000021",
             "text": "grease",
             "example": "Be careful, the pan is covered in grease.",
             "answers": ["grease"]
-        },        {
+        },
+        {
             "id": "000022",
             "text": "cheese",
             "example": "She loves to eat macaroni and cheese.",
             "answers": ["cheese"]
-        },        {
+        },
+        {
             "id": "000023",
             "text": "smoke",
             "example": "We saw smoke coming from the chimney.",
             "answers": ["smoke"]
-        },        {
+        },
+        {
             "id": "000024",
             "text": "bone",
             "example": "The dog buried a bone in the backyard.",
             "answers": ["bone"]
-        },        {
+        },
+        {
             "id": "000025",
             "text": "spike",
             "example": "The cactus had a sharp spike on it.",
             "answers": ["spike"]
-        },        {
+        },
+        {
             "id": "000026",
             "text": "spice",
             "example": "She added a pinch of spice to the soup.",
             "answers": ["spice"]
-        },        {
+        },
+        {
             "id": "000027",
             "text": "shine",
             "example": "The stars began to shine as it got dark.",
             "answers": ["shine"]
-        },        {
+        },
+        {
             "id": "000028",
             "text": "whine",
             "example": "The puppy would whine when it was hungry.",
             "answers": ["whine"]
-        },        {
+        },
+        {
             "id": "000029",
             "text": "craze",
             "example": "The new toy became a craze at school.",
             "answers": ["craze"]
-        },        {
+        },
+        {
             "id": "000030",
             "text": "laze",
             "example": "They decided to laze around on the weekend.",

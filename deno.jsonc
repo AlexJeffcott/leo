@@ -22,7 +22,7 @@
     "singleQuote": true
   },
   "tasks": {
-    "start": "deno run --allow-read --allow-net --allow-write --allow-env src/server.ts",
+    "start": "deno run --allow-read --allow-net --allow-write --allow-env --watch=src src/server.ts",
     "test": "deno test --allow-read --allow-net --allow-write --allow-env build-bundler.test.ts"
   },
   "imports": {
@@ -35,10 +35,11 @@
     "preact/": "https://esm.sh/*preact@10.19.6/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
-    "@/app.module.css": "./src/css-module.d.ts",
-    "@/global.css": "./src/css.d.ts",
-    "@/assets/avatar.png": "./src/png-asset.d.ts",
-    "@/assets/favicon.ico": "./src/png-asset.d.ts",
-    "@/assets/site.webmanifest": "./src/png-asset.d.ts"
+    "@/ui/app.module.css": "./src/types/css-module.d.ts",
+    "@/ui/components/button.module.css": "./src/types/css-module.d.ts",
+    "@/global.css": "./src/types/css.d.ts",
+    "@/assets/avatar.png": "./src/types/png-asset.d.ts",
+    "@/assets/favicon.ico": "./src/types/png-asset.d.ts",
+    "@/assets/site.webmanifest": "./src/types/png-asset.d.ts"
   }
 }

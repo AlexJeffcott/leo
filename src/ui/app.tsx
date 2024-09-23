@@ -1,10 +1,10 @@
-import classes from '@/app.module.css'
-import { Avatar } from '@/icons/avatar.tsx'
+import classes from '@/ui/app.module.css'
+import { Avatar, Speaker } from '@/icons/mod.ts'
 import { type FunctionalComponent } from 'preact'
 import { useSignal } from '@preact/signals'
-import { useDecksStore } from '@/contexts/decks.tsx'
-import { useRoutesStore } from '@/contexts/routes.tsx'
-import { useStableVariable } from '@/hooks/use-stable-variable.tsx'
+import { useDecksStore, useRoutesStore } from '@/contexts/mod.ts'
+import { useStableVariable } from '@/hooks/mod.ts'
+import { Button } from '@/ui/components/mod.ts'
 
 export const App: FunctionalComponent = () => {
   const routesStore = useRoutesStore()
@@ -25,20 +25,15 @@ export const Welcome: FunctionalComponent = () => {
     decksStore.reset()
     routesStore.currentRoute.value = 'spelling'
     decksStore.setCurrentDeck('english')
+    decksStore.log()
     decksStore.goToNextQuestion()
   })
 
-  const goToGerman = useStableVariable(() => {
+  const goToGermanSpelling = useStableVariable(() => {
     decksStore.reset()
     routesStore.currentRoute.value = 'spelling'
-    decksStore.setCurrentDeck('german')
-    decksStore.goToNextQuestion()
-  })
-
-  const goToTimesTables = useStableVariable(() => {
-    decksStore.reset()
-    routesStore.currentRoute.value = 'maths'
-    decksStore.setCurrentDeck('tables')
+    decksStore.setCurrentDeck('deutsch')
+    decksStore.log()
     decksStore.goToNextQuestion()
   })
 
@@ -46,15 +41,8 @@ export const Welcome: FunctionalComponent = () => {
     <>
       <h1 class={classes.title}>Hello, welcome to LEO!</h1>
       <Avatar class={classes.avatar} />
-      <button onClick={goToEnglishSpelling}>
-        English Spelling
-      </button>
-      <button onClick={goToGerman}>
-        German Spelling
-      </button>
-      <button onClick={goToTimesTables}>
-        Multiplication Tables
-      </button>
+      <Button onClick={goToEnglishSpelling} text='English Spelling' />
+      <Button onClick={goToGermanSpelling} text='Deutsch Spelling' />
     </>
   )
 }
@@ -64,14 +52,16 @@ export const Spelling: FunctionalComponent = () => {
   const routesStore = useRoutesStore()
 
   const textInput = useSignal('')
-  const status = useSignal<'right' | 'wrong' | 'unchecked'>('unchecked')
+  const status = useSignal<'right' | 'wrong' | 'wrong-again' | 'unchecked'>(
+    'unchecked',
+  )
 
   const checkQuestion = useStableVariable(() => {
     if (decksStore.currentQuestion.value) {
       if (decksStore.currentQuestion.value.answers.includes(textInput.value)) {
         status.value = 'right'
       } else {
-        status.value = 'wrong'
+        status.value = status.value === 'wrong' ? 'wrong-again' : 'wrong'
       }
     }
   })
@@ -98,7 +88,7 @@ export const Spelling: FunctionalComponent = () => {
 
   if (
     decksStore.currentDeck.value?.title !== 'english' &&
-    decksStore.currentDeck.value?.title !== 'german'
+    decksStore.currentDeck.value?.title !== 'deutsch'
   ) {
     routesStore.currentRoute.value = 'welcome'
     decksStore.reset()
@@ -107,9 +97,7 @@ export const Spelling: FunctionalComponent = () => {
 
   return (
     <>
-      <button onClick={goToWelcome}>
-        back
-      </button>
+      <Button onClick={goToWelcome} icon={Avatar} />
       <h1 class={classes.title}>{decksStore.currentDeck.value?.title}</h1>
       {decksStore.currentQuestion.value && decksStore.currentDeck.value && (
         <>
@@ -119,13 +107,22 @@ export const Spelling: FunctionalComponent = () => {
               id='player'
               src={`/audio/${decksStore.currentQuestion.value.text}.mp3`}
             />
-            <button class={classes.audioButton} onClick={play}>👂</button>
+            <Button
+              onClick={play}
+              icon={Speaker}
+            />
             {decksStore.currentDeck.value.postQuestionText}
           </h3>
           {status.value === 'unchecked' && (
             <p>Click on the ear to hear the word.</p>
           )}
           {status.value === 'wrong' && <p>That’s not right, try again.</p>}
+          {status.value === 'wrong-again' && (
+            <p>
+              It was "{decksStore.currentQuestion.value.text}". Let’ try
+              another. Click “next”.
+            </p>
+          )}
           {status.value === 'right' && <p>That’s right! Click “next”.</p>}
           <input
             value={textInput.value}
@@ -144,6 +141,9 @@ export const Spelling: FunctionalComponent = () => {
           )}
           {status.value === 'wrong' && (
             <button onClick={checkQuestion}>try again</button>
+          )}
+          {status.value === 'wrong-again' && (
+            <button onClick={goToNextQuestion}>let's try another</button>
           )}
           {status.value === 'right' && (
             <button onClick={goToNextQuestion}>next</button>
