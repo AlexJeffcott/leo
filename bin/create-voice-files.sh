@@ -3,21 +3,25 @@
 # chmod +x bin/create-voice-files.sh
 
 set -eo pipefail
-dir=$(dirname $0)/../src/assets
-if [ ! -d "$dir" ]; then
-    mkdir -p "$dir"
-fi
 
-cd $dir
+cd src/assets/audio
 
-if [ "$1" == "en" ]; then
-    say --voice="Jamie (Premium)" "$2" -o $2.aiff
-    lame -m m $2.aiff $2.mp3
-elif [ "$1" == "de" ]; then
-    say --voice="Anna (Premium)" "$2" -o $2.aiff
-    lame -m m $2.aiff $2.mp3
-else
-    echo "Invalid argument. Please use 'en' for English or 'de' for German."
-fi
+while IFS='|' read -r word sentence; do
+    if [ -f "$word.mp3" ]; then
+        # Skip if file exists
+        continue
+    fi
+    say --voice="Jamie (Premium)" "$word. $sentence. $word" -o "$word.aiff"
+    lame -m m "$word.aiff" "$word.mp3"
+    rm -f "$word.aiff"
+done < ../../../data/en
 
-rm -f $2.aiff
+while IFS='|' read -r word sentence; do
+    if [ -f "$word.mp3" ]; then
+        # Skip if file exists
+        continue
+    fi
+    say --voice="Anna (Premium)" "$word. $sentence. $word" -o "$word.aiff"
+    lame -m m "$word.aiff" "$word.mp3"
+    rm -f "$word.aiff"
+done < ../../../data/de

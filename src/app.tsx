@@ -117,7 +117,7 @@ export const Spelling: FunctionalComponent = () => {
             {decksStore.currentDeck.value.preQuestionText}
             <audio
               id='player'
-              src={`/${decksStore.currentQuestion.value.text}.mp3`}
+              src={`/audio/${decksStore.currentQuestion.value.text}.mp3`}
             />
             <button class={classes.audioButton} onClick={play}>👂</button>
             {decksStore.currentDeck.value.postQuestionText}
@@ -153,11 +153,3 @@ export const Spelling: FunctionalComponent = () => {
     </>
   )
 }
-
-// function speak(text: string, lang: 'de' | 'en') {
-//   const utterance = new SpeechSynthesisUtterance(text)
-//   const voices = speechSynthesis.getVoices()
-//   utterance.voice = voices[0]
-//   utterance.lang = lang
-//   speechSynthesis.speak(utterance)
-// }
