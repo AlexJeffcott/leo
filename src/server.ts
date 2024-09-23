@@ -9,6 +9,16 @@ import * as esbuild from "https://deno.land/x/esbuild@v0.24.0/wasm.js"
 
 const app = new Hono()
 
+async function makeBundle() {
+  const cfg = await forPreact({
+    entryPoints: ['./src/main.tsx'],
+    write: false,
+  }, 'deno.jsonc', 'dev', 'browser', '.env')
+
+
+  return bundleInDenoDeploy(cfg, esbuild.build, esbuild.initialize, esbuild.stop)
+}
+
 const result = await makeBundle()
 
 let scripts = ''
@@ -97,15 +107,3 @@ app.get('/', (c) => {
 app.use('/*', serveStatic({ root: './src/assets' }))
 
 Deno.serve({ port: 8000 }, app.fetch)
-
-async function makeBundle() {
-  const cfg = await forPreact({
-    entryPoints: ['./src/main.tsx'],
-    write: false,
-  }, 'deno.jsonc', 'dev', 'browser', '.env')
-
-
-  if (esbuild) {
-    return bundleInDenoDeploy(cfg, esbuild)
-  }
-}
