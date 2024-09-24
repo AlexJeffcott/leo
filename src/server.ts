@@ -6,6 +6,7 @@ import {
 import { Hono } from 'hono'
 import { serveStatic } from 'hono/deno';
 import * as esbuild from "https://deno.land/x/esbuild@v0.24.0/wasm.js"
+import { contentType } from '@std/media-types'
 
 const app = new Hono()
 
@@ -20,65 +21,35 @@ async function makeBundle() {
 }
 
 const result = await makeBundle()
+result.errors.forEach(console.error)
+result.warnings.forEach(console.warn)
+if (result?.outputFiles === undefined) {
+  throw new Error('result.outputFiles should be defined')
+}
 
 let scripts = ''
 let styles = ''
 
-if (result?.outputFiles === undefined) {
-  throw new Error('result.outputFiles should be defined')
-}
+const fileTypes = ['jpg', 'jpeg', 'png', 'woff2']
+
 for (const out of result.outputFiles) {
+  // does deno have a lib for getting the fileName?
   const fileName = out.path.split('/').pop() || 'undefined.js'
+  // does deno have a lib for getting the ext?
   const ext = fileName.split('.').pop()
   const path = `/${fileName}`
 
-  app.get(path, () => {
-    if (ext === 'css') {
-      return new Response(
-        new File(
-          [out.text],
-          fileName,
-          { type: 'text/css' },
-        ),
-      )
-    } else if (ext === 'woff2') {
-      return new Response(
-        new File(
-          [out.contents.buffer],
-          fileName,
-          { type: 'font/woff2' },
-        ),
-      )
-    } else if (ext === 'png') {
-      return new Response(
-        new File(
-          [out.contents.buffer],
-          fileName,
-          { type: 'image/png' },
-        ),
-      )
-    } else if (ext === 'jpg' || ext === 'jpeg') {
-      return new Response(
-        new File(
-          [out.contents.buffer],
-          fileName,
-          { type: 'image/jpeg' },
-        ),
-      )
-    } else {
-      return new Response(
-        new File(
-          [out.text],
-          fileName,
-          { type: 'text/javascript' },
-        ),
-      )
-    }
-  })
+  app.get(path, () => new Response(
+    new File(
+      !fileTypes.includes(ext || 'txt') ? [out.text] : [out.contents.buffer],
+      fileName,
+      { type: contentType(ext || 'txt') },
+    ),
+  ))
 
   if (ext === 'css') {
     styles = `${styles}\n<link rel="stylesheet" type="text/css" href="${path}">`
-  } else if (ext === 'js') {
+  } else if (ext === 'js' || ext === 'mjs') {
     scripts = `${scripts}\n<script type="module" src="${path}"></script>`
   }
 }

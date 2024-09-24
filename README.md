@@ -23,6 +23,8 @@ Every time the server runs, it rebuilds the source code. It adds a fairly unique
   else get all the files to output as part of the build process an serve them in-memory
 - build the audio assets using the decks as the source of truth
 
+use @std/parse json or parsejsonc in deno-esbuild
+
 #### Stores
 - should I split up decks from session?
 - I need to link the stores to localStorage
