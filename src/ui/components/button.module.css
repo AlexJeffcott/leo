@@ -20,6 +20,7 @@
     border-radius: calc(var(--h) / 2);
     outline: none;
     white-space: nowrap;
+    overflow: hidden;
     transition: all .2s;
   }
 

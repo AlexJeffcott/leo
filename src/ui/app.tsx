@@ -97,8 +97,7 @@ export const Spelling: FunctionalComponent = () => {
 
   return (
     <>
-      <Button onClick={goToWelcome} icon={Avatar} />
-      <h1 class={classes.title}>{decksStore.currentDeck.value?.title}</h1>
+      <Button class={classes.backBtn} onClick={goToWelcome} text='<' />
       {decksStore.currentQuestion.value && decksStore.currentDeck.value && (
         <>
           <h3 class={classes.questionText}>
@@ -113,18 +112,10 @@ export const Spelling: FunctionalComponent = () => {
             />
             {decksStore.currentDeck.value.postQuestionText}
           </h3>
-          {status.value === 'unchecked' && (
-            <p>Click on the ear to hear the word.</p>
-          )}
-          {status.value === 'wrong' && <p>That’s not right, try again.</p>}
-          {status.value === 'wrong-again' && (
-            <p>
-              It was "{decksStore.currentQuestion.value.text}". Let’ try
-              another. Click “next”.
-            </p>
-          )}
-          {status.value === 'right' && <p>That’s right! Click “next”.</p>}
           <input
+            spellcheck={false}
+            type='text'
+            class={classes.input}
             value={textInput.value}
             onChange={(event) => {
               if (
@@ -135,6 +126,14 @@ export const Spelling: FunctionalComponent = () => {
               }
             }}
           />
+          {status.value === 'wrong' && <p>That’s not right, try again.</p>}
+          {status.value === 'wrong-again' && (
+            <p>
+              It was "{decksStore.currentQuestion.value.text}". Let’ try
+              another. Click “next”.
+            </p>
+          )}
+          {status.value === 'right' && <p>That’s right! Click “next”.</p>}
           {/* TODO: show a different message when there are no more questions */}
           {status.value === 'unchecked' && (
             <button onClick={checkQuestion}>check</button>

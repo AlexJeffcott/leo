@@ -11,17 +11,14 @@ type ButtonProps = {
 }
 
 export const Button: FunctionalComponent<ButtonProps> = (
-    { ariaLabel, class: classname, icon: Icon, onClick, text },
-) => {
-    console.log(classes.btn)
-    return (
-        <button
-            class={cx(classes.btn, !text && classes.rnd, classname)}
-            onClick={onClick}
-            aria-label={ariaLabel}
-        >
-            {Icon && <Icon />}
-            {text}
-        </button>
-    )
-}
+    { ariaLabel, class: className, icon: Icon, onClick, text },
+) => (
+    <button
+        class={cx(classes.btn, !text && classes.rnd, className)}
+        onClick={onClick}
+        aria-label={ariaLabel}
+    >
+        {Icon && <Icon />}
+        {text}
+    </button>
+)

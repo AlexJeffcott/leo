@@ -1,5 +1,9 @@
 .page {
     padding: 16px;
+    gap: 16px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
 }
 
 .title {
@@ -9,6 +13,10 @@
 
 .avatar {
     width: 100px;
+}
+
+.backBtn {
+    justify-self: start;
 }
 
 .questionText {
@@ -31,4 +39,9 @@ audio {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.input {
+    font-size: 80px;
+    text-align: center;
 }

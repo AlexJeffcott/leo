@@ -10,6 +10,13 @@ import { contentType } from '@std/media-types'
 
 const app = new Hono()
 
+
+// TODO: use Deno.PermissionStatus to check that we are not trying to use --allow-run
+// which would break deno deploy
+// Deno.PermissionStatus
+
+// TODO: should I cache the esbuild wasm so I can reuse it between server runs?
+
 async function makeBundle() {
   const cfg = await forPreact({
     entryPoints: ['./src/main.tsx'],
