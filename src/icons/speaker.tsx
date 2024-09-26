@@ -2,13 +2,13 @@ import { type FunctionalComponent } from 'preact'
 
 // https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
 export const Speaker: FunctionalComponent<{ class?: string }> = (
-    { class: classname },
+    { class: className },
 ) => (
     <svg
         xmlns='http://www.w3.org/2000/svg'
         version='1.0'
         viewBox='0 0 75 75'
-        class={classname}
+        class={className}
         fill='none'
     >
         <path

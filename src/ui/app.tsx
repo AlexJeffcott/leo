@@ -1,5 +1,5 @@
 import classes from '@/ui/app.module.css'
-import { Avatar, Speaker } from '@/icons/mod.ts'
+import { Avatar, ChevronLeft, Speaker } from '@/icons/mod.ts'
 import { type FunctionalComponent } from 'preact'
 import { useSignal } from '@preact/signals'
 import { useDecksStore, useRoutesStore } from '@/contexts/mod.ts'
@@ -97,7 +97,11 @@ export const Spelling: FunctionalComponent = () => {
 
   return (
     <>
-      <Button class={classes.backBtn} onClick={goToWelcome} text='<' />
+      <Button
+        class={classes.backBtn}
+        onClick={goToWelcome}
+        icon={ChevronLeft}
+      />
       {decksStore.currentQuestion.value && decksStore.currentDeck.value && (
         <>
           <h3 class={classes.questionText}>

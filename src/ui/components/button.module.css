@@ -16,7 +16,6 @@
     padding: 0 16px;
     background-color: var(--btn-bg);
     color: var(--color);
-    fill: var(--color);
     border-radius: calc(var(--h) / 2);
     outline: none;
     white-space: nowrap;

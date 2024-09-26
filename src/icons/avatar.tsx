@@ -1,13 +1,13 @@
 import { type FunctionalComponent } from 'preact'
 
 export const Avatar: FunctionalComponent<{ class?: string }> = (
-  { class: classname },
+  { class: className },
 ) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     version='1.1'
     viewBox='0 0 200 200'
-    class={classname}
+    class={className}
   >
     <g id='svga-group-wrapper'>
       <g id='svga-group-backs-single'></g>
